@@ -3,7 +3,7 @@ import {graphql} from 'gatsby'
 import Layout from '../components/layout'
 
 const ReadMead = ({data}) => {
-    const {title} = data.contentfulReadAndMead;
+    const title = data.contentfulReadAndMead;
 
     return(
         <Layout>
