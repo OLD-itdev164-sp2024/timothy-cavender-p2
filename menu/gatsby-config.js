@@ -1,6 +1,5 @@
 /**
  * Configure your Gatsby site with this file.
- *Test1233
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
