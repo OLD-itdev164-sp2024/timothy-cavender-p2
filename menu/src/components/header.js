@@ -28,8 +28,9 @@ const StyledImage = styled.img`
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
-    <h2>Welcome To The Read And Mead!</h2>
-    <StyledLink to="/"><StyledImage src={logo} /></StyledLink>  
+    <StyledLink to="/">Food and Drink Menu</StyledLink>  
+    <StyledLink to="/bookreviews">Book Reviews</StyledLink>  
+    <StyledLink to="/bookreleases">Upcoming Releases</StyledLink>  
   </StyledHeader>
 )
 
