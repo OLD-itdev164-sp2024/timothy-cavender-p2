@@ -3,59 +3,66 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import hotCoffee from "../images/hotcoffee.jpg"
-import liquor from "../images/liquor.jpg"
-import books from "../images/books.jpg"
-import cBrew from "../images/coldbrew.jpg"
 
-const IndexPage = ({data}) => (
-  <Layout>
-    <Seo title="Home" />
-    <div className="container">
-      <div className="container-item">
-        <h2>Hot Coffee Menu</h2>
-        <Link to="/hotcoffee">
-          <img src={hotCoffee}alt="Hot Coffee" />
-        </Link>
+
+/*The tags are going to be put into an array to create a new div based on distinct tags.
+We will then pass in the appropriate data based on the matching tags*/
+const IndexPage = ({data}) => {
+  const tagGroups = {};
+
+  data.allContentfulRmMenu.edges.forEach(edge => {
+  const {tags} = edge.node;
+  const tagsArray = Array.isArray(tags) ? tags : [tags];
+
+  tagsArray.forEach(tag => {
+    if(!tagGroups[tag]){
+      tagGroups[tag] = [];
+    }
+    tagGroups[tag].push(edge);
+  });
+});
+
+  return (
+    <Layout>
+      <Seo title='Main Menu'/>
+      <div className="container">
+      <h1>Read and Mead Menu</h1>
+      {
+        Object.keys(tagGroups).map(tag => (
+          <div key={tag} className="container-item">
+            <h1>{tag}</h1>
+            {
+              tagGroups[tag].map(edge => (
+                <div>
+                  <h2>{edge.node.name}</h2>
+                  <p>{edge.node.description.description}</p>
+                  <p>{edge.node.price}</p>
+                </div>
+              ))
+            }
+          </div>
+        ))
+      }
       </div>
-      <div className="container-item">
-        <h2>Liquor Menu</h2>
-        <Link to="/liquor">
-          <img src={liquor}alt="Liquor" />
-        </Link>
-      </div>
-      <div className="container-item">
-        <h2>Cold Brew Menu</h2>
-        <Link to="/construction">
-          <img src={cBrew}alt="Cold Brew" />
-        </Link>
-      </div>
-      <div className="container-item">
-        <h2>Book Menu</h2>
-        <Link to="/construction">
-          <img src={books}alt="Books" />
-        </Link>
-      </div>
-    </div>
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
 
-export const query = graphql `
-  {
-    allContentfulReadAndMead {
-      edges {
-        node {
-          id
-          title
-          body {
-            body
-          }
+export const query = graphql `{
+  allContentfulRmMenu(sort: {tags: ASC}) {
+    edges {
+      node {
+        name
+        description {
+          description
         }
+        price
+        tags
       }
     }
   }
-`
+} `
