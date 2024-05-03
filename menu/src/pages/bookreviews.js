@@ -15,21 +15,21 @@ const BookReviews = ({data}) => {
 export default BookReviews
 
 export const query = graphql `
-    {   
-        allContentfulRmBookReviews {
-            edges {
-                node {
-                    title
-                    author
-                    rating
-                    reviewer
-                    tags
-                    reviewDate(formatString: "MMMM Do, YYYY")
-                    review {
-                        review
-                    }
-                }
-            }
+{
+  allContentfulRmBookReviews(sort: {reviewDate: DESC}) {
+    edges {
+      node {
+        title
+        author
+        rating
+        reviewer
+        tags
+        reviewDate(formatString: "MMMM Do, YYYY")
+        review {
+          review
         }
+      }
     }
+  }
+}
 `
