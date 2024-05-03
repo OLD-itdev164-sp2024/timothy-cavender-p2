@@ -41,7 +41,7 @@ export const query = graphql `
           }
         }
         author
-        releaseDate(formatString: "MM Do, YYYY")
+        releaseDate(formatString: "MMMM Do, YYYY")
         description {
           description
         }
