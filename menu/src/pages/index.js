@@ -3,48 +3,43 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import hotCoffee from "../images/hotcoffee.jpg"
-import liquor from "../images/liquor.jpg"
-import books from "../images/books.jpg"
-import cBrew from "../images/coldbrew.jpg"
 
-const IndexPage = ({data}) => (
-  <Layout>
-    <Seo title="Home" />
-    <div className="container">
-      <div className="container-item">
-        <h2>Hot Coffee Menu</h2>
-        <Link to="/hotcoffee">
-          <img src={hotCoffee}alt="Hot Coffee" />
-        </Link>
-      </div>
-      <div className="container-item">
-        <h2>Liquor Menu</h2>
-        <Link to="/liquor">
-          <img src={liquor}alt="Liquor" />
-        </Link>
-      </div>
-      <div className="container-item">
-        <h2>Cold Brew Menu</h2>
-        <Link to="/construction">
-          <img src={cBrew}alt="Cold Brew" />
-        </Link>
-      </div>
-      <div className="container-item">
-        <h2>Book Menu</h2>
-        <Link to="/construction">
-          <img src={books}alt="Books" />
-        </Link>
-      </div>
-    </div>
-  </Layout>
-)
+const IndexPage = ({data}) => {
+  return (
+    <Layout>
+      <Seo title='Main Menu'/>
+        {
+          data.allContentfulRmMenu.edges.map(edge => (
+            <div>
+              <h2>{edge.node.name}</h2>
+              <p>{edge.node.description.description}</p>
+              <p>{edge.node.price}</p>
+            </div>
+          ))
+        }
+    </Layout>
+  )
+}
 
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
 
-export const query = graphql `
+export const query = graphql `{
+  allContentfulRmMenu {
+    edges {
+      node {
+        name
+        description {
+          description
+        }
+        price
+      }
+    }
+  }
+} `
+
+/*export const query = graphql `
   {
     allContentfulReadAndMead {
       edges {
@@ -58,4 +53,4 @@ export const query = graphql `
       }
     }
   }
-`
+`*/
