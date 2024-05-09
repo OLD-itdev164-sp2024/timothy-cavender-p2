@@ -1,7 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import logo from "../images/read-and-mead.jpg"
 import styled from "styled-components"
 
 const StyledHeader = styled.header`
@@ -42,4 +41,4 @@ Header.defaultProps = {
   siteTile: ""
 }
 
-export default Header
+export {Header}
