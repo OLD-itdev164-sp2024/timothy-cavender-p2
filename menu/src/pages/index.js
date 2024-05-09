@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
 
+import{List, ListItem} from "../components/Menu/List"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -29,18 +30,18 @@ const IndexPage = ({data}) => {
       <h1>Read and Mead Menu</h1>
       {
         Object.keys(tagGroups).map(tag => (
-          <div key={tag} className="container-item">
+          <List key={tag} className="container-item">
             <h1>{tag}</h1>
             {
               tagGroups[tag].map(edge => (
-                <div>
+                <ListItem>
                   <h2>{edge.node.name}</h2>
                   <p>{edge.node.description.description}</p>
                   <p>{edge.node.price}</p>
-                </div>
+                </ListItem>
               ))
             }
-          </div>
+          </List>
         ))
       }
       </div>
