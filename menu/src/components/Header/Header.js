@@ -3,15 +3,23 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
+const StyledContainer = styled.div`
+  /*position: fixed;*/
+  width: 100%;
+  h1 {
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  
+`
 const StyledHeader = styled.header`
   margin: 0 auto;
   padding: var(--space-4) var(--size-gutter);
   display: flex;
   justify-content: space-evenly;
-  background: ${props => props.theme.header.backgroundColor};
-  position: fixed;
-  top: 0;
-  width: 100%;
+  background: ${props => props.theme.header.backgroundColor};  
+  top: 0;  
   color: black;
 `
 const StyledLink = styled(Link)`
@@ -26,11 +34,13 @@ const StyledImage = styled.img`
 `
 
 const Header = ({ siteTitle }) => (
-  <StyledHeader>
-    <StyledLink to="/">Food and Drink Menu</StyledLink>  
-    <StyledLink to="/bookreviews">Book Reviews</StyledLink>  
-    <StyledLink to="/bookreleases">Upcoming Releases</StyledLink>  
-  </StyledHeader>
+  <StyledContainer>
+    <StyledHeader>
+      <StyledLink to="/">Food and Drink Menu</StyledLink>  
+      <StyledLink to="/bookreviews">Book Reviews</StyledLink>  
+      <StyledLink to="/bookreleases">Upcoming Releases</StyledLink>  
+    </StyledHeader>
+  </StyledContainer>
 )
 
 Header.propTypes = {

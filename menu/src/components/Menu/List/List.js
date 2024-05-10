@@ -1,18 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {MenuContainer} from '../MenuContainer/MenuContainer'
+//import {MenuContainer} from '../MenuContainer/MenuContainer'
 
 const StyledList = styled.ul `
-    flex: auto;
-    flex-direction: column;
     color: red;
+    margin: 0;
+    border: 1px solid black;
+    width: 100%;
+    h1 {
+        border-bottom: 1px solid black;
+    }
 `
 
 export const List = ({children, ...rest}) => (
-    <MenuContainer>
-        <StyledList>{children}</StyledList>
-    </MenuContainer>
+    <StyledList>{children}</StyledList>
     
 )
 

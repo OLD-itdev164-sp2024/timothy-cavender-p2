@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledMenuContainer = styled.div`
-    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    h1 {
+        text-align: center;
+    }
 `
 
 export const MenuContainer = ({children, ...rest}) => (
