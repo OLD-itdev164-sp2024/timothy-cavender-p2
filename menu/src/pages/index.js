@@ -1,6 +1,8 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
 
+import { MenuContainer } from "../components/Menu/MenuContainer/MenuContainer"
+import{List, ListItem} from "../components/Menu/List"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -25,25 +27,26 @@ const IndexPage = ({data}) => {
   return (
     <Layout>
       <Seo title='Main Menu'/>
-      <div className="container">
-      <h1>Read and Mead Menu</h1>
+      <MenuContainer>
       {
         Object.keys(tagGroups).map(tag => (
-          <div key={tag} className="container-item">
+          <List key={tag} className="container-item">
             <h1>{tag}</h1>
             {
               tagGroups[tag].map(edge => (
-                <div>
-                  <h2>{edge.node.name}</h2>
-                  <p>{edge.node.description.description}</p>
-                  <p>{edge.node.price}</p>
-                </div>
+                <ListItem>
+                  <h2 id="name">{edge.node.name}</h2>
+                  <div>
+                    <p id="desc">{edge.node.description.description}</p>
+                    <p id="price">${edge.node.price}</p>
+                  </div>
+                </ListItem>
               ))
             }
-          </div>
+          </List>
         ))
       }
-      </div>
+      </MenuContainer>
     </Layout>
   )
 }

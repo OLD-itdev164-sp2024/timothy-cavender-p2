@@ -1,0 +1,9 @@
+Theming:
+	- Create a color theme to be used for the Drink Menu
+
+Style Componenets 
+	- Header
+	- List for Menu
+
+Styled Icons (maybe)
+	- Icon for Read and Mead

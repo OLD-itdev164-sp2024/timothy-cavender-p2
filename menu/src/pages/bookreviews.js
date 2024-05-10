@@ -2,15 +2,18 @@ import React from 'react'
 import {graphql} from 'gatsby'
 
 import Layout from '../components/layout'
-import Seo from '../components/seo'
+import { Books } from '../components/Books/Books'
+import { BookContainer } from '../components/Books/BookContainer'
 
 const BookReviews = ({data}) => {
     return (
         <Layout>
+          <BookContainer>
             <h1>Book Reviews</h1>
             <ul>
                 {
                     data.allContentfulRmBookReviews.edges.map(edge => (
+                      <Books>
                         <li>
                             <h2>Title: {edge.node.title}</h2>
                             <h3>Author: {edge.node.author}</h3>
@@ -21,9 +24,11 @@ const BookReviews = ({data}) => {
                             <img src={edge.node.bookCover.file.url} />
                             <p>Review: {edge.node.review.review}</p>
                         </li>
+                      </Books>
                     ))
                 }
             </ul>
+          </BookContainer>
         </Layout>
     )
 }
