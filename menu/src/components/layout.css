@@ -25,7 +25,7 @@
   --size-content: 54rem;
   --size-gutter: var(--space-5);
   --size-gap: var(--space-6);
-  /*background-image: url("../images/menu-background.jpg");*/
+  background-image: url("../images/menu-background.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: 100%;

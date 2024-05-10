@@ -4,7 +4,7 @@ import styled from 'styled-components'
 //import {MenuContainer} from '../MenuContainer/MenuContainer'
 
 const StyledList = styled.ul `
-    color: red;
+    color: black;
     margin: 0;
     border: 1px solid black;
     width: 100%;
