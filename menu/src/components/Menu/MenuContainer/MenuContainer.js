@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const StyledMenuContainer = styled.div`
     display: flex;
     flex-direction: row;
-    background: rgba(252,209,34,.50);
+    background: rgba(199,167,38,.45);
     
     h1 {
         text-align: center;

@@ -6,7 +6,6 @@ const StyledListItem = styled.li `
     list-style: none;
     padding-left: 1em;
     padding-right: 1em;
-    font-style: italic;
     div {
         display: flex;
         justify-content: left;

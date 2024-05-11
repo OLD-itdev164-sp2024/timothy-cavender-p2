@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import {BookContainer} from '../components/Books/BookContainer'
 import {Books} from '../components/Books/Books'
 import Layout from '../components/layout'
-import Seo from '../components/seo'
 
 const BookReleases = ({data}) => {
     return (
