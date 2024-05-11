@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const StyledBooks = styled.div`
     color: black;
-    background-color: white;
+    background: rgba(199,167,38,.75);
     border: 1px solid black;
 `
 

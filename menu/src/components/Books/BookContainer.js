@@ -5,7 +5,8 @@ import styled from 'styled-components'
 const StyledContainer = styled.div`
     text-align: center;
     h1 {
-        color: red
+        text-align: right;
+        color: rgb(230, 140, 3);
     };
 `
 
