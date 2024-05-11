@@ -8,6 +8,7 @@ const StyledList = styled.ul `
     margin: 0;
     border: 1px solid black;
     width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
     h1 {
         border-bottom: 1px solid black;
     }
